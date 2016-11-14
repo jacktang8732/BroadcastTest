@@ -19,49 +19,49 @@ import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
 
 public class MainActivity extends AppCompatActivity {
 
-    private IntentFilter intentFilter;
-    private NetworkChangeReceiver networkChangeReceiver;
+    /*private IntentFilter intentFilter;
+    private NetworkChangeReceiver networkChangeReceiver;*/
 
-    /*private  IntentFilter intentFilter;
+    private IntentFilter intentFilter;
     private  LocalReceiver localReceiver;
-    private  LocalBroadcastManager localBroadcastManager;//通过LocalBroadcastManager对本地广播进行管理，提供发送广播和注册广播接收器的方法*/
+    private LocalBroadcastManager localBroadcastManager;//通过LocalBroadcastManager对本地广播进行管理，提供发送广播和注册广播接收器的方法
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        localBroadcastManager = localBroadcastManager.getInstance(this);//通过LocalBroadcastManager的getInstance方法获取LocalBroadcastManager实例
-        /*Button button = (Button) findViewById(R.id.button);
+        localBroadcastManager = localBroadcastManager.getInstance(this);//通过LocalBroadcastManager的getInstance方法获取LocalBroadcastManager实例
+        Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(".LOCAL_BROADCAST");
                 localBroadcastManager.sendBroadcast(intent);//通过LocalBroadcastManager实例的sendBroadcast方法发送本地广播
             }
-        });*/
-       /* intentFilter = new IntentFilter();
+        });
+        intentFilter = new IntentFilter();
         intentFilter.addAction(".LOCAL_BROADCAST");
         localReceiver = new LocalReceiver();
-        localBroadcastManager.registerReceiver(localReceiver,intentFilter);//通过LocalBroadcastManager实例的registerReceiver方法注册本地广播监听器*/
-        intentFilter = new IntentFilter();
+        localBroadcastManager.registerReceiver(localReceiver, intentFilter);//通过LocalBroadcastManager实例的registerReceiver方法注册本地广播监听器
+     /*   intentFilter = new IntentFilter();
         intentFilter.addAction(CONNECTIVITY_ACTION);
         networkChangeReceiver = new NetworkChangeReceiver();
-        registerReceiver(networkChangeReceiver, intentFilter);
+        registerReceiver(networkChangeReceiver, intentFilter);*/
     }
 
-   /* @Override
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         localBroadcastManager.unregisterReceiver(localReceiver);
-    }*/
+    }
 
-    /*private class LocalReceiver extends BroadcastReceiver{
+    private class LocalReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             Toast.makeText(context,"receiver local broadcast",Toast.LENGTH_SHORT).show();
         }
-    }*/
+    }
 
-    @Override
+   /* @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(networkChangeReceiver);
@@ -79,5 +79,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(context, "未连接网络", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 }
